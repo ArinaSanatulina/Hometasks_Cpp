@@ -11,5 +11,6 @@ int main()
 
     std::cout << ("Arina is a great student that is how many times:");
     std::for_each(
-        in(std::cin), in(), std::cout << (_1 * 5) << " ");
+        in(std::cin), in(), std::cout << "  Or so many: " << (_1 * 5)<< " \n  ");
+
 }
