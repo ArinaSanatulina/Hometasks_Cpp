@@ -12,6 +12,6 @@ int main()
     std::cout << ("w8 for a few seconds...");
     std::cout << ("Arina and her groupmates are great students that is how many times:");
     std::for_each(
-        in(std::cin), in(), std::cout << "  Or so many: " << (_1 * 1651)<< " \n  ");
+        in(std::cin), in(), std::cout << "  Or so many: " << (_1 * 9000)<< " \n  ");
 
 }
