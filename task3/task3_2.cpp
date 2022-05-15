@@ -87,27 +87,27 @@ private:
 
 int main()
 {
-	const int length = 100000;		 //задание длины последовательности
-	std::vector<int> filler(length);	//создание вектора заданой длины (филлера)
+	const int length = 100000;		 //Р·Р°РґР°РЅРёРµ РґР»РёРЅС‹ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё
+	std::vector<int> filler(length);	//СЃРѕР·РґР°РЅРёРµ РІРµРєС‚РѕСЂР° Р·Р°РґР°РЅРѕР№ РґР»РёРЅС‹ (С„РёР»Р»РµСЂР°)
 
-	for (auto i = 0; i < length; ++i)		//заполнение вектора числами от 0 до length
+	for (auto i = 0; i < length; ++i)		//Р·Р°РїРѕР»РЅРµРЅРёРµ РІРµРєС‚РѕСЂР° С‡РёСЃР»Р°РјРё РѕС‚ 0 РґРѕ length
 	{
 		filler[i] = i;
 	}
 
-	std::shuffle(std::begin(filler),std::end(filler), std::default_random_engine(length));	//перемешиваем последовательность
+	std::shuffle(std::begin(filler),std::end(filler), std::default_random_engine(length));	//РїРµСЂРµРјРµС€РёРІР°РµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ
 
-	std::array<int, length> array;				//создаём последовательность типа array
+	std::array<int, length> array;				//СЃРѕР·РґР°С‘Рј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РёРїР° array
 
-	std::vector<int> vector(filler);			//создаем вектор и копируем в него содержимое filler
+	std::vector<int> vector(filler);			//СЃРѕР·РґР°РµРј РІРµРєС‚РѕСЂ Рё РєРѕРїРёСЂСѓРµРј РІ РЅРµРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ filler
 
-	std::deque<int> deque;						//создаём последовательность типа deque
+	std::deque<int> deque;						//СЃРѕР·РґР°С‘Рј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РёРїР° deque
 
-	std::list<int> list;						//создаём последовательность типа list
+	std::list<int> list;						//СЃРѕР·РґР°С‘Рј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РёРїР° list
 
-	std::forward_list<int> forward_list;		//создаём последовательность типа forward_list
+	std::forward_list<int> forward_list;		//СЃРѕР·РґР°С‘Рј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РёРїР° forward_list
 
-	for (auto i = 0; i < length; ++i)			//вставка элементов filler во все остальные типы последовательностей
+	for (auto i = 0; i < length; ++i)			//РІСЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚РѕРІ filler РІРѕ РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ С‚РёРїС‹ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚РµР№
 	{
 		array[i] = filler[i];
 
@@ -119,9 +119,9 @@ int main()
 	}
 
 	{
-		Timer t("array");								//запуск отчета времени
+		Timer t("array");								//Р·Р°РїСѓСЃРє РѕС‚С‡РµС‚Р° РІСЂРµРјРµРЅРё
 
-		std::sort(std::begin(array),std::end(array));	//запуск сортировки
+		std::sort(std::begin(array),std::end(array));	//Р·Р°РїСѓСЃРє СЃРѕСЂС‚РёСЂРѕРІРєРё
 	}
 
 	{
