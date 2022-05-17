@@ -96,49 +96,49 @@ private:
 
 int main()
 {
-	const int length = 1000000;						//длина контейнера
+	const int length = 1000000;						//РґР»РёРЅР° РєРѕРЅС‚РµР№РЅРµСЂР°
 	
-	const int iterations = 20;						//количество итераций
+	const int iterations = 20;						//РєРѕР»РёС‡РµСЃС‚РІРѕ РёС‚РµСЂР°С†РёР№
 	
-	double avg_vector_time = 0;						//переменная для среднего времени вектора
+	double avg_vector_time = 0;						//РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ СЃСЂРµРґРЅРµРіРѕ РІСЂРµРјРµРЅРё РІРµРєС‚РѕСЂР°
 		
-	double avg_set_time = 0;						//переменная для среднего времени set'a
+	double avg_set_time = 0;						//РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ СЃСЂРµРґРЅРµРіРѕ РІСЂРµРјРµРЅРё set'a
 
-	std::vector<int> filler(length);			//создание контейнера под филлер
+	std::vector<int> filler(length);			//СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РїРѕРґ С„РёР»Р»РµСЂ
 
-	std::vector<int> vector_time(iterations);	//создание контейнера для времени вектора в каждую итерацию
+	std::vector<int> vector_time(iterations);	//СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РґР»СЏ РІСЂРµРјРµРЅРё РІРµРєС‚РѕСЂР° РІ РєР°Р¶РґСѓСЋ РёС‚РµСЂР°С†РёСЋ
 
-	std::vector<int> set_time(iterations);	//создание контейнера для времени set'a в каждую итерацию
+	std::vector<int> set_time(iterations);	//СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РґР»СЏ РІСЂРµРјРµРЅРё set'a РІ РєР°Р¶РґСѓСЋ РёС‚РµСЂР°С†РёСЋ
 
-	std::vector <int> vector;			//создание контейнера типа vector для исследования
+	std::vector <int> vector;			//СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° С‚РёРїР° vector РґР»СЏ РёСЃСЃР»РµРґРѕРІР°РЅРёСЏ
 
-	std::set <int> set;					//создание контейнера типа set для исследования
+	std::set <int> set;					//СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° С‚РёРїР° set РґР»СЏ РёСЃСЃР»РµРґРѕРІР°РЅРёСЏ
 
-	for (auto i = 0; i < length; ++i)	//цикл по заполнению filler'a
+	for (auto i = 0; i < length; ++i)	//С†РёРєР» РїРѕ Р·Р°РїРѕР»РЅРµРЅРёСЋ filler'a
 	{
 		filler[i] = i;
 	}
 
-	std::shuffle(std::begin(filler), std::end(filler), std::default_random_engine(length)); //перемешивание элементов filler'a
+	std::shuffle(std::begin(filler), std::end(filler), std::default_random_engine(length)); //РїРµСЂРµРјРµС€РёРІР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ filler'a
 
-	for(auto i = 0; i<iterations;++i)		//цикл на iterations итераций
+	for(auto i = 0; i<iterations;++i)		//С†РёРєР» РЅР° iterations РёС‚РµСЂР°С†РёР№
 	{
 		{
-			Timer t("vector");			//запуск отчета времени
+			Timer t("vector");			//Р·Р°РїСѓСЃРє РѕС‚С‡РµС‚Р° РІСЂРµРјРµРЅРё
 
-			for (auto n : filler)		//вставка в vector length раз
+			for (auto n : filler)		//РІСЃС‚Р°РІРєР° РІ vector length СЂР°Р·
 			{
 				vector.push_back(n);
 			}
 
-			std::sort(std::begin(vector), std::end(vector)); //сортировка vector
+			std::sort(std::begin(vector), std::end(vector)); //СЃРѕСЂС‚РёСЂРѕРІРєР° vector
 
-			vector_time[i] = t.get_time(); // конец отчета времени
+			vector_time[i] = t.get_time(); // РєРѕРЅРµС† РѕС‚С‡РµС‚Р° РІСЂРµРјРµРЅРё
 		}
 
-		vector = std::vector<int>();	//очистка контейнера vector
+		vector = std::vector<int>();	//РѕС‡РёСЃС‚РєР° РєРѕРЅС‚РµР№РЅРµСЂР° vector
 
-		{								//всё аналогично vector'у
+		{								//РІСЃС‘ Р°РЅР°Р»РѕРіРёС‡РЅРѕ vector'Сѓ
 			Timer t("set");
 
 			for (auto n : filler)
@@ -158,9 +158,9 @@ int main()
 
 	for (auto n : vector_time)			
 	{
-		avg_vector_time += n * 1.0;			//подсчет среднего времени vector
+		avg_vector_time += n * 1.0;			//РїРѕРґСЃС‡РµС‚ СЃСЂРµРґРЅРµРіРѕ РІСЂРµРјРµРЅРё vector
 
-		std::cout << n << ' ';				//вывод времени для каждой итерации vector'a
+		std::cout << n << ' ';				//РІС‹РІРѕРґ РІСЂРµРјРµРЅРё РґР»СЏ РєР°Р¶РґРѕР№ РёС‚РµСЂР°С†РёРё vector'a
 	}
 
 	std::cout << std::endl;
@@ -170,7 +170,7 @@ int main()
 	std::cout << "Set time: ";
 
 
-	for (auto n : set_time)				//аналогично vector'у
+	for (auto n : set_time)				//Р°РЅР°Р»РѕРіРёС‡РЅРѕ vector'Сѓ
 	{
 		avg_set_time += n * 1.0;
 
@@ -185,7 +185,7 @@ int main()
 
 	std::cout << "Average set time: " << avg_set_time << std::endl;
 
-	if (avg_set_time < avg_vector_time)	//определение лидера
+	if (avg_set_time < avg_vector_time)	//РѕРїСЂРµРґРµР»РµРЅРёРµ Р»РёРґРµСЂР°
 		{
 		std::cout << "leader is set";
 		}
